@@ -38,6 +38,7 @@
     "SPARK_MESOS_EXECUTOR_DOCKER_IMAGE": "{{#spark.executor_docker_image}}{{spark.executor_docker_image}}{{/spark.executor_docker_image}}{{^spark.executor_docker_image}}{{resource.assets.container.docker.spark}}{{/spark.executor_docker_image}}",
     "SPARK_CORES_MAX": "{{spark.cores_max}}",
     "SPARK_EXECUTOR_MEMORY": "{{spark.executor_memory}}",
+    "SPARK_DISPATCHER": "{{spark.dispatcher}}",
     "ZEPPELIN_JAVA_OPTS": "{{service.zeppelin_java_opts}}",
     "ZEPPELIN_NOTEBOOK_DIR": "/var/lib/zeppelin/notebook",
     "ZEPPELIN_LOG_DIR": "/var/lib/zeppelin/log"
