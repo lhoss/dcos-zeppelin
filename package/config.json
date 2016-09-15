@@ -23,6 +23,10 @@
                     "type": "string",
                     "description": "A URI serving the Spark distribution to use for the local Zeppelin Spark context.  By default, this will use the value specified in this package's resource.json"
                 },
+                "dispatcher": {
+                    "type": "string",
+                    "description": "A url to the spark dispatcher to use with this install of Zeppelin. If not set, will used built-in cluster launcher",
+                },
                 "executor_docker_image": {
                     "type": "string",
                     "description": "The docker image to launch Spark executors with.  By default, this will use this value specified in this package's resource.json"
@@ -34,7 +38,8 @@
                 },
                 "executor_memory": {
                     "type": "string",
-                    "description": "Sets spark.executor.memory"
+                    "description": "Sets spark.executor.memory",
+                    "default": "4g"
                 }
             }
         }

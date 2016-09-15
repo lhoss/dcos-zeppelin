@@ -8,5 +8,11 @@
 [ -n "${SPARK_CORES_MAX}" ] &&
     export ZEPPELIN_JAVA_OPTS="${ZEPPELIN_JAVA_OPTS} -Dspark.cores.max=${SPARK_CORES_MAX}"
 
-export MASTER=mesos://leader.mesos:5050
+if [ -n "${SPARK_DISPATCHER}" ]; then
+    export MASTER=${SPARK_DISPATCHER}
+    export SPARK_SUBMIT_OPTIONS="--deploy-mode cluster"
+else
+    export MASTER=mesos://leader.mesos:5050
+fi
+
 export MESOS_NATIVE_LIBRARY=/usr/lib/libmesos.so
