@@ -29,15 +29,6 @@ RUN apt-get update && \
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 RUN update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
-# spark
-ENV SPARK_VERSION 2.0.0-bin-hadoop2.7
-ENV BASE_DIR /usr/local/tl
-ENV SPARK_HOME /usr/local/tl/spark-2
-ENV PATH $PATH:${SPARK_HOME}/bin
-RUN mkdir $BASE_DIR
-RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VERSION}.tgz | tar -xz -C $BASE_DIR
-RUN cd $BASE_DIR && ln -s spark-${SPARK_VERSION} ${SPARK_HOME}
-
 
 # zeppelin
 #RUN wget http://mirror.serversupportforum.de/apache/zeppelin/zeppelin-$ZEPPELIN_VERSION/zeppelin-$ZEPPELIN_VERSION-bin-all.tgz
